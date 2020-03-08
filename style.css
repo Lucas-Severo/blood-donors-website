@@ -89,6 +89,17 @@ header button {
     color: #ffffffaa;
 }
 
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    margin-top: -70px;
+    height: 0;
+}
+
+.form {
+    transition: all .3s;
+}
+
 
 /* Main */
 
