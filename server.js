@@ -14,11 +14,24 @@ nunjucks.configure({
     noCache: true
 })
 
-const donors = [
-]
+const Pool = require('pg').Pool;
+const db = new Pool({
+    user: 'root',
+    host: 'localhost',
+    database: 'donor',
+    password: 'root',
+    port: 5432
+});
 
 server.get("/", function(req, res) {
-    return res.render("index.html", {donors});
+    db.query("SELECT * FROM donor", function(err, result) {
+        if (err)
+        {
+            return res.send("Erro ao acessar o banco de dados");
+        }
+        const donors = result.rows;
+        return res.render('index.html', {donors});
+    });
 });
 
 server.post("/", function(req, res){
@@ -30,9 +43,15 @@ server.post("/", function(req, res){
         return res.send("Todos os campos precisam ser preenchidos");
     }
 
-    donors.push({name, email, blood});
+    db.query(`INSERT INTO donor (name, email, blood) 
+    VALUES ('${name}', '${email}', '${blood}');`, function(err, result){
+        if(err)
+        {
+            return res.send("Erro ao acessar banco de dados");
+        }
 
-    return res.redirect("/");
+        return res.redirect("/");
+    });
 })
 
 server.listen(3000, function() {
