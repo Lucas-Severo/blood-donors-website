@@ -1,0 +1,23 @@
+{
+  "name": "maratonadev2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucas-Severo/blood-donors-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lucas-Severo/blood-donors-website/issues"
+  },
+  "homepage": "https://github.com/Lucas-Severo/blood-donors-website#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
