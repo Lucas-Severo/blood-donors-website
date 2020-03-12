@@ -120,6 +120,10 @@ main h2 > span {
     font-size: 14px;
 }
 
+.donor p {
+    margin-bottom: 20px;
+}
+
 .blood {
     font-size: 12px;
     color: #ff4f4f;
